@@ -1,17 +1,17 @@
 import { Navbar } from "@/components/Navbar";
-import { HeroSection } from "@/components/HeroSection";
-import { CTASection } from "@/components/CTASection";
+import { ProductsSection } from "@/components/ProductsSection";
 import { Footer } from "@/components/Footer";
 
-const Index = () => {
+const Products = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
-      <HeroSection />
-      <CTASection />
+      <div className="pt-16">
+        <ProductsSection />
+      </div>
       <Footer />
     </div>
   );
 };
 
-export default Index;
+export default Products;

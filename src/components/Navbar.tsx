@@ -1,31 +1,32 @@
 import { Button } from "@/components/ui/button";
 import { Dumbbell } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border animate-fade-in">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2 animate-fade-in-left">
+          <Link to="/" className="flex items-center gap-2 animate-fade-in-left">
             <Dumbbell className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold bg-gradient-to-r from-primary to-red-600 bg-clip-text text-transparent">
               ProSupps
             </span>
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8 animate-fade-in">
-            <a href="#home" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            <Link to="/" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
               Home
-            </a>
-            <a href="#products" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            </Link>
+            <Link to="/products" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
               Products
-            </a>
-            <a href="#features" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            </Link>
+            <Link to="/features" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
               Features
-            </a>
-            <a href="#testimonials" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            </Link>
+            <Link to="/testimonials" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
               Testimonials
-            </a>
+            </Link>
           </div>
 
           <div className="flex items-center gap-2 animate-fade-in-right">
