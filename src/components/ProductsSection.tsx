@@ -1,3 +1,4 @@
+// ...existing code...
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star } from "lucide-react";
@@ -70,7 +71,19 @@ export const ProductsSection = () => {
             </Card>
           ))}
         </div>
+
+        {/* More Products button that redirects to the full products page */}
+        <div className="flex justify-center mt-8">
+          <Button
+            onClick={() => (window.location.href = "/products")}
+            className="bg-gradient-to-r from-primary to-red-600 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300"
+            aria-label="View more products"
+          >
+            More Products
+          </Button>
+        </div>
       </div>
     </section>
   );
 };
+// ...existing code...
