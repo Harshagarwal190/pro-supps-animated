@@ -1,73 +1,101 @@
-# Welcome to your Lovable project
+# Pro Supps Animated
 
-## Project info
+Animated UI components / illustrations for Pro Supps (or “ProSupps Animated”).
 
-**URL**: https://lovable.dev/projects/200f1786-9831-484a-8f82-7ef2aab23baf
+A collection of animated visual elements built for use in the Pro Supps project — e.g. supplement packaging, landing pages, hero sections, and more.
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- SVG / Lottie based animations  
+- Lightweight and performant  
+- Easy to integrate into web projects  
+- Customizable (colors, speed, size)  
+- Multiple components (icons, loaders, hero animations, etc.)
 
-**Use Lovable**
+## 📦 Contents / Structure
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/200f1786-9831-484a-8f82-7ef2aab23baf) and start prompting.
+Below is a recommended structure (adjust to your actual repo):
 
-Changes made via Lovable will be committed automatically to this repo.
+/
+├── src/
+│ ├── components/
+│ │ ├── HeroAnimation/
+│ │ ├── Loader/
+│ │ └── IconAnimations/
+│ ├── assets/
+│ │ ├── svg/
+│ │ └── lottie/
+│ └── styles/
+├── demo/
+│ ├── index.html
+│ └── app.js
+├── .gitignore
+├── package.json
+├── README.md
+└── LICENSE
 
-**Use your preferred IDE**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- **src/** — source code for components and animations  
+- **demo/** — a small demo to showcase usage  
+- **assets/** — images, SVGs, Lottie JSON files  
+- **styles/** — CSS / SCSS files (if any)  
+- **package.json** — dependencies & scripts  
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Installation
 
-Follow these steps:
+You can install via npm (or yarn). Example:
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```bash
+npm install pro-supps-animated
+# or
+yarn add pro-supps-animated
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+🎨 Customization
 
-# Step 3: Install the necessary dependencies.
-npm i
+You can override defaults via props or via CSS (depending on implementation).
+Examples:
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Change colors
 
-**Edit a file directly in GitHub**
+Adjust animation duration / throttling
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Toggle states (pause / resume)
 
-**Use GitHub Codespaces**
+Responsive / adapt to container sizing
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+🧪 Demo & Examples
 
-## What technologies are used for this project?
+Check out demo/ folder, or host a live demo (e.g. on GitHub Pages, Netlify).
+Examples to try:
 
-This project is built with:
+Hero section with entrance animation
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Loader overlay
 
-## How can I deploy this project?
+Icon animations on scroll / hover
 
-Simply open [Lovable](https://lovable.dev/projects/200f1786-9831-484a-8f82-7ef2aab23baf) and click on Share -> Publish.
+ Contributing
 
-## Can I connect a custom domain to my Lovable project?
+Contributions are welcome! Steps:
 
-Yes, you can!
+Fork the repo
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Create a new branch (git checkout -b feat/your-feature)
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Implement and test
+
+Submit a pull request
+
+Make sure to:
+
+Follow code style / linting
+
+Add tests if applicable
+
+Update this README / docs
+
+📝 License
+
+This project is released under the MIT License (or choose your preferred license).
+See the LICENSE
+ file for details.
