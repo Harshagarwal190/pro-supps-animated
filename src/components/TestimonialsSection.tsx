@@ -3,25 +3,39 @@ import { Star } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Mike Johnson",
-    role: "Professional Athlete",
-    content: "Best protein I've ever used. Results are visible within weeks!",
-    rating: 5,
+    name: "Arjun Patel",
+    role: "Fitness Trainer",
+    content: "The best supplement I've used so far. It boosts my energy and enhances my performance in the gym.",
+    rating: 4.5,
     delay: "0s",
   },
   {
-    name: "Sarah Williams",
-    role: "Fitness Enthusiast",
-    content: "Amazing taste and quality. It's become a staple in my daily routine.",
+    name: "Priya Sharma",
+    role: "Yoga Instructor",
+    content: "I love how natural and clean the ingredients are. It's a great addition to my daily routine!",
     rating: 5,
     delay: "0.2s",
   },
   {
-    name: "David Chen",
+    name: "Vikram Singh",
     role: "Bodybuilder",
-    content: "ProSupps has helped me achieve my muscle gain goals faster than expected.",
-    rating: 5,
+    content: "I noticed significant muscle gains in just a few weeks. The taste is also quite good compared to other brands.",
+    rating: 4,
     delay: "0.4s",
+  },
+  {
+    name: "Anjali Verma",
+    role: "Marathon Runner",
+    content: "I’ve been using this protein supplement for a few months now. It’s perfect for recovery after long runs!",
+    rating: 4.5,
+    delay: "0.6s",
+  },
+  {
+    name: "Rahul Desai",
+    role: "Nutritionist",
+    content: "The protein blend is fantastic! I recommend it to all my clients looking for an effective and reliable supplement.",
+    rating: 5,
+    delay: "0.8s",
   },
 ];
 
@@ -49,6 +63,9 @@ export const TestimonialsSection = () => {
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
                   <Star key={i} className="h-5 w-5 fill-primary text-primary" />
                 ))}
+                {testimonial.rating % 1 !== 0 && (
+                  <Star className="h-5 w-5 fill-primary text-primary opacity-50" />
+                )}
               </div>
               <p className="text-lg mb-6 italic">"{testimonial.content}"</p>
               <div>

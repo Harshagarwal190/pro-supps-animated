@@ -1,7 +1,7 @@
-// ...existing code...
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const products = [
   {
@@ -9,6 +9,7 @@ const products = [
     price: "$49.99",
     rating: 5,
     description: "24g protein, 5.5g BCAAs, 4g Glutamine",
+    image: "/images/gold-standard.png",
     delay: "0s",
   },
   {
@@ -16,6 +17,7 @@ const products = [
     price: "$59.99",
     rating: 5,
     description: "30g protein, ultra-filtered whey isolate",
+    image: "/images/isolate-premium.png",
     delay: "0.2s",
   },
   {
@@ -23,6 +25,7 @@ const products = [
     price: "$69.99",
     rating: 5,
     description: "50g protein, 250g carbs, 1250 calories",
+    image: "/images/mass-gainer.png",
     delay: "0.4s",
   },
 ];
@@ -42,13 +45,22 @@ export const ProductsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, index) => (
-            <Card 
+            <Card
               key={index}
               className="overflow-hidden hover:shadow-2xl transition-all duration-300 group animate-scale-in"
               style={{ animationDelay: product.delay }}
             >
               <div className="aspect-square bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                <div className="text-8xl font-bold text-primary/20">W</div>
+                {product.image ? (
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain p-6"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div className="text-8xl font-bold text-primary/20">W</div>
+                )}
               </div>
               <div className="p-6">
                 <div className="flex items-center gap-1 mb-2">
@@ -74,16 +86,13 @@ export const ProductsSection = () => {
 
         {/* More Products button that redirects to the full products page */}
         <div className="flex justify-center mt-8">
-          <Button
-            onClick={() => (window.location.href = "/products")}
-            className="bg-gradient-to-r from-primary to-red-600 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300"
-            aria-label="View more products"
-          >
-            More Products
-          </Button>
+          <Link to="/products" aria-label="View more products">
+            <Button className="bg-gradient-to-r from-primary to-red-600 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300">
+              More Products
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
   );
 };
-// ...existing code...

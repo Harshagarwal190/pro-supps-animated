@@ -40,10 +40,10 @@ export const HeroSection = () => {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Button 
+ <Button 
                 size="lg" 
                 variant="outline"
-                className="border-2 hover:bg-primary/5 hover:border-primary hover:scale-105 transition-all duration-300 text-lg"
+                className="border-2 text-lg transition-all duration-300 hover:scale-105 hover:bg-primary/5 hover:text-black hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
               >
                 Contact Us
               </Button>

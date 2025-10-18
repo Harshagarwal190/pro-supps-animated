@@ -65,7 +65,7 @@ export const BeforeAfterSection = () => {
                     alt="Before transformation"
                     className="w-full h-64 object-cover rounded-lg"
                   />
-                  <Badge className="absolute top-2 left-2 bg-background/90">Before</Badge>
+                  <Badge className="absolute top-2 left-2 bg-black">Before</Badge>
                 </div>
                 <div className="relative">
                   <img 
