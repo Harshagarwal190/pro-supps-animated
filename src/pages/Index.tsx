@@ -10,7 +10,6 @@ import { BlogSection } from "@/components/BlogSection";
 import { SocialFeedSection } from "@/components/SocialFeedSection";
 import { FAQSection } from "@/components/FAQSection";
 import { OffersSection } from "@/components/OffersSection";
-import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 
 const Index = () => {
@@ -28,7 +27,6 @@ const Index = () => {
       <BlogSection />
       <SocialFeedSection />
       <FAQSection />
-      <CTASection />
       <Footer />
     </div>
   );
