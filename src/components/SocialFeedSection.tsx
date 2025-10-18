@@ -2,11 +2,15 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Instagram, Twitter, Facebook, Heart, MessageCircle } from "lucide-react";
+import workoutScene from "@/assets/workout-scene.jpg";
+import lifestyle1 from "@/assets/lifestyle-1.jpg";
+import lifestyle2 from "@/assets/lifestyle-2.jpg";
+import lifestyle3 from "@/assets/lifestyle-3.jpg";
 
 const socialPosts = [
   {
     platform: "instagram",
-    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop",
+    image: workoutScene,
     caption: "Morning grind 💪 #ProSupps #FitnessMotivation",
     likes: "2.4K",
     comments: "89",
@@ -14,7 +18,7 @@ const socialPosts = [
   },
   {
     platform: "instagram",
-    image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop",
+    image: lifestyle1,
     caption: "Pre-workout fuel ⚡ Ready to crush today's session!",
     likes: "1.8K",
     comments: "67",
@@ -22,7 +26,7 @@ const socialPosts = [
   },
   {
     platform: "instagram",
-    image: "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&h=400&fit=crop",
+    image: lifestyle2,
     caption: "Transformation Tuesday 🔥 3 months of consistency",
     likes: "3.2K",
     comments: "124",
@@ -30,8 +34,8 @@ const socialPosts = [
   },
   {
     platform: "instagram",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=400&fit=crop",
-    caption: "Nutrition is 80% of the game 🥗 #HealthyEating",
+    image: lifestyle3,
+    caption: "Back day never looked so good 💪 #BackWorkout",
     likes: "1.5K",
     comments: "43",
     delay: "0.6s",

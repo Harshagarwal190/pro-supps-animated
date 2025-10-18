@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import transformationImg from "@/assets/transformation.jpg";
 
 const transformations = [
   {
@@ -40,6 +41,14 @@ export const BeforeAfterSection = () => {
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             See what our customers achieved with ProSupps
           </p>
+        </div>
+
+        <div className="mb-12 animate-fade-in-up">
+          <img 
+            src={transformationImg}
+            alt="Fitness transformation results"
+            className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
+          />
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">

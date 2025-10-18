@@ -1,6 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Target, Users, Award, Heart } from "lucide-react";
+import workoutScene from "@/assets/workout-scene.jpg";
+import lifestyleProducts from "@/assets/lifestyle-products.jpg";
 
 const values = [
   {
@@ -27,8 +29,17 @@ const values = [
 
 export const BrandStorySection = () => {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Image */}
+        <div className="mb-16 animate-fade-in-up">
+          <img 
+            src={workoutScene}
+            alt="Athletes training with ProSupps"
+            className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+          />
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="animate-fade-in-up">
             <Badge className="mb-4">Our Story</Badge>
@@ -69,6 +80,15 @@ export const BrandStorySection = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Lifestyle Products Image */}
+        <div className="mt-16 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+          <img 
+            src={lifestyleProducts}
+            alt="ProSupps product lineup"
+            className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
+          />
         </div>
       </div>
     </section>
