@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const articles = [
   {
+    id: "protein-sources-muscle-growth",
     title: "10 Best Protein Sources for Muscle Growth",
     excerpt: "Discover the top protein sources that will help you build lean muscle mass faster and more effectively.",
     image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&h=500&fit=crop",
@@ -14,6 +15,7 @@ const articles = [
     delay: "0s",
   },
   {
+    id: "pre-workout-supplements-guide",
     title: "Complete Guide to Pre-Workout Supplements",
     excerpt: "Learn everything about pre-workout supplements, when to take them, and how they boost your performance.",
     image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&h=500&fit=crop",
@@ -22,6 +24,7 @@ const articles = [
     delay: "0.2s",
   },
   {
+    id: "workout-routines-maximum-results",
     title: "5 Workout Routines for Maximum Results",
     excerpt: "Proven workout routines designed to maximize your gains and help you reach your fitness goals faster.",
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=500&fit=crop",
@@ -48,7 +51,7 @@ export const BlogSection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {articles.map((article, index) => (
             <Card 
-              key={index}
+              key={article.id}
               className="overflow-hidden hover:shadow-xl hover:scale-105 transition-all duration-300 animate-fade-in-up group"
               style={{ animationDelay: article.delay }}
             >
@@ -72,9 +75,11 @@ export const BlogSection = () => {
                     <Clock className="h-4 w-4" />
                     <span>{article.readTime}</span>
                   </div>
-                  <Button variant="ghost" size="sm" className="group">
-                    Read More
-                    <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <Button asChild variant="ghost" size="sm" className="group">
+                    <Link to={`/blog/${article.id}`}>
+                      Read More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </Button>
                 </div>
               </CardContent>

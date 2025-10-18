@@ -27,6 +27,9 @@ export const Navbar = () => {
             <Link to="/testimonials" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
               Testimonials
             </Link>
+            <Link to="/blog" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+              Blog
+            </Link>
           </div>
 
           <div className="flex items-center gap-2 animate-fade-in-right">
