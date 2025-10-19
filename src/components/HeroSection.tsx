@@ -13,10 +13,10 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Text content */}
           <div className="space-y-8 animate-fade-in-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary animate-scale-in">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary animate-scale-in">
               <Zap className="h-4 w-4" />
               <span className="text-sm font-semibold">Premium Quality Supplements</span>
-            </div>
+            </div> */}
             
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Premium Whey Protein
@@ -33,7 +33,7 @@ export const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link to="/products">
                 <Button 
-                  size="lg" 
+                  size="sm" 
                   className="bg-gradient-to-r from-primary to-red-600 hover:shadow-xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 text-lg group w-full sm:w-auto"
                 >
                   View Products

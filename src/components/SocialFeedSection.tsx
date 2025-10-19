@@ -60,7 +60,9 @@ export const SocialFeedSection = () => {
     <section className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16 animate-fade-in-up">
-          <Badge className="mb-4">Join Our Community</Badge>
+          <Badge className="mb-5 text-lg md:text-xl px-3 py-2 rounded-lg inline-flex items-center gap-2">
+            Join Our Community
+          </Badge>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Follow Us on <span className="text-primary">Social Media</span>
           </h2>
