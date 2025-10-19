@@ -1,7 +1,11 @@
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import type { User } from "@supabase/supabase-js";
 
 const products = [
   {
@@ -31,6 +35,48 @@ const products = [
 ];
 
 export const ProductsSection = () => {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const { toast } = useToast();
+
+  useEffect(() => {
+    // Get initial session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user ?? null);
+    });
+
+    // Listen for auth changes
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleAddToCart = async (productName: string) => {
+    if (!user) {
+      toast({
+        title: "Login Required",
+        description: "Please login to add items to cart",
+        variant: "destructive",
+      });
+      navigate("/auth");
+      return;
+    }
+
+    setLoading(productName);
+    
+    // In a real app, you would add to cart in database here
+    // For now, just show a success message
+    toast({
+      title: "Added to Cart",
+      description: `${productName} has been added to your cart`,
+    });
+    
+    setLoading(null);
+  };
+
   return (
     <section id="products" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -74,9 +120,13 @@ export const ProductsSection = () => {
                 <p className="text-muted-foreground mb-4">{product.description}</p>
                 <div className="flex items-center justify-between">
                   <span className="text-3xl font-bold text-primary">{product.price}</span>
-                  <Button className="bg-gradient-to-r from-primary to-red-600 hover:shadow-lg hover:shadow-primary/50 group-hover:scale-105 transition-all duration-300">
+                  <Button 
+                    onClick={() => handleAddToCart(product.name)}
+                    disabled={loading === product.name}
+                    className="bg-gradient-to-r from-primary to-red-600 hover:shadow-lg hover:shadow-primary/50 group-hover:scale-105 transition-all duration-300"
+                  >
                     <ShoppingCart className="h-4 w-4 mr-2" />
-                    Add to Cart
+                    {loading === product.name ? "Adding..." : "Add to Cart"}
                   </Button>
                 </div>
               </div>
