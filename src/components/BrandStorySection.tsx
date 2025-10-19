@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Target, Users, Award, Heart } from "lucide-react";
+import { Link } from "react-router-dom";
 import workoutScene from "@/assets/workout-scene.jpg";
 import lifestyleProducts from "@/assets/lifestyle-products.jpg";
 
@@ -58,12 +59,14 @@ export const BrandStorySection = () => {
                 Every product we create undergoes rigorous testing and quality control. We don't just sell supplements—we're your partners in achieving your fitness goals.
               </p>
             </div>
-            <Button size="lg" className="group">
-              Learn More About Us
-              <svg className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Button>
+            <Link to="/about">
+              <Button size="lg" className="group">
+                Learn More About Us
+                <svg className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </Button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-6 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
