@@ -67,12 +67,12 @@ export const HeroSection = () => {
           </div>
 
           {/* Right column - Product image */}
-          <div className="relative animate-fade-in-right">
+          <div className="relative animate-fade-in-right flex justify-center">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-red-600/20 rounded-full blur-3xl animate-pulse-glow" />
             <img 
               src={heroProduct} 
               alt="Premium Whey Protein Products" 
-              className="relative z-10 w-full h-auto animate-float drop-shadow-2xl"
+              className="relative z-10 w-4/5 h-auto animate-float drop-shadow-2xl"
             />
           </div>
         </div>
