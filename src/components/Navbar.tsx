@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Dumbbell, LogOut, User } from "lucide-react";
+import { Dumbbell, LogOut, User, ShoppingCart } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -116,6 +116,14 @@ export const Navbar = () => {
           <div className="flex items-center gap-2 animate-fade-in-right">
             {user ? (
               <>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => navigate("/cart")}
+                  className="hover:scale-105 transition-transform duration-300"
+                >
+                  <ShoppingCart className="h-5 w-5" />
+                </Button>
                 <div className="flex items-center gap-2 text-sm text-foreground">
                   <User className="h-4 w-4" />
                   <span className="hidden md:inline">{user.email}</span>

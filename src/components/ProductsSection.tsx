@@ -54,6 +54,15 @@ export const ProductsSection = () => {
     return () => subscription.unsubscribe();
   }, []);
 
+  const getProductId = (productName: string) => {
+    const productIds: Record<string, string> = {
+      "Gold Standard Whey": "gold-standard",
+      "Isolate Premium": "isolate-premium",
+      "Mass Gainer": "mass-gainer",
+    };
+    return productIds[productName] || productName.toLowerCase().replace(/\s+/g, '-');
+  };
+
   const handleAddToCart = async (productName: string) => {
     if (!user) {
       toast({
@@ -67,14 +76,58 @@ export const ProductsSection = () => {
 
     setLoading(productName);
     
-    // In a real app, you would add to cart in database here
-    // For now, just show a success message
-    toast({
-      title: "Added to Cart",
-      description: `${productName} has been added to your cart`,
-    });
-    
-    setLoading(null);
+    try {
+      const productId = getProductId(productName);
+      
+      // Check if product already exists in cart
+      const { data: existingItem, error: fetchError } = await supabase
+        .from("cart")
+        .select("*")
+        .eq("user_id", user.id)
+        .eq("product_id", productId)
+        .single();
+
+      if (fetchError && fetchError.code !== "PGRST116") {
+        throw fetchError;
+      }
+
+      if (existingItem) {
+        // Update quantity if item exists
+        const { error: updateError } = await supabase
+          .from("cart")
+          .update({ quantity: existingItem.quantity + 1 })
+          .eq("id", existingItem.id);
+
+        if (updateError) throw updateError;
+      } else {
+        // Insert new item
+        const { error: insertError } = await supabase
+          .from("cart")
+          .insert({
+            user_id: user.id,
+            product_id: productId,
+            quantity: 1,
+          });
+
+        if (insertError) throw insertError;
+      }
+
+      toast({
+        title: "Added to Cart",
+        description: `${productName} has been added to your cart`,
+      });
+      
+      // Redirect to cart page
+      navigate("/cart");
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to add item to cart",
+        variant: "destructive",
+      });
+    } finally {
+      setLoading(null);
+    }
   };
 
   return (
