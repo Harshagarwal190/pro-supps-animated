@@ -93,9 +93,9 @@ const Cart = () => {
 
   const getProductPrice = (productId: string) => {
     const prices: Record<string, number> = {
-      "gold-standard": 49.99,
-      "isolate-premium": 59.99,
-      "mass-gainer": 69.99,
+      "gold-standard": 4999,
+      "isolate-premium": 5999,
+      "mass-gainer": 6999,
     };
     return prices[productId] || 0;
   };
@@ -220,7 +220,7 @@ const Cart = () => {
                       <div className="flex-1">
                         <h3 className="text-xl font-bold mb-2">{item.product_name}</h3>
                         <p className="text-2xl font-bold text-primary mb-4">
-                          ${item.product_price}
+                          ₹{item.product_price}
                         </p>
                         <div className="flex items-center gap-4">
                           <div className="flex items-center gap-2">
@@ -254,7 +254,7 @@ const Cart = () => {
                       </div>
                       <div className="text-right">
                         <p className="text-xl font-bold">
-                          ${(item.product_price * item.quantity).toFixed(2)}
+                          ₹{(item.product_price * item.quantity).toFixed(2)}
                         </p>
                       </div>
                     </div>
@@ -268,7 +268,7 @@ const Cart = () => {
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between text-lg">
                       <span>Subtotal:</span>
-                      <span className="font-semibold">${calculateTotal()}</span>
+                      <span className="font-semibold">₹{calculateTotal()}</span>
                     </div>
                     <div className="flex justify-between text-lg">
                       <span>Shipping:</span>
@@ -277,7 +277,7 @@ const Cart = () => {
                     <div className="border-t pt-4">
                       <div className="flex justify-between text-2xl font-bold">
                         <span>Total:</span>
-                        <span className="text-primary">${calculateTotal()}</span>
+                        <span className="text-primary">₹{calculateTotal()}</span>
                       </div>
                     </div>
                   </div>

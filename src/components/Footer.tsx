@@ -64,7 +64,7 @@ export const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Phone className="h-4 w-4 text-primary" />
-                <span>+1 (555) 123-4567</span>
+                <span>+91 8199786745 </span>
               </li>
               <li className="flex items-center gap-2 text-muted-foreground text-sm">
                 <Mail className="h-4 w-4 text-primary" />
@@ -72,7 +72,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-start gap-2 text-muted-foreground text-sm">
                 <MapPin className="h-4 w-4 text-primary mt-1" />
-                <span>123 Fitness Street<br />Los Angeles, CA 90001</span>
+                <span>Bikaner Sweets  <br />katraj, Pune 411043</span>
               </li>
             </ul>
           </div>
@@ -100,7 +100,7 @@ export const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-muted-foreground text-sm">
-              © 2024 ProSupps. All rights reserved.
+              © 2025 ProSupps. All rights reserved.
             </p>
             <div className="flex gap-6">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">

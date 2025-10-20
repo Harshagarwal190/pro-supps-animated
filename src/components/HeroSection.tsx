@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroProduct from "@/assets/hero-product-new.png";
 
@@ -13,11 +13,6 @@ export const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left column - Text content */}
           <div className="space-y-8 animate-fade-in-left">
-            {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary animate-scale-in">
-              <Zap className="h-4 w-4" />
-              <span className="text-sm font-semibold">Premium Quality Supplements</span>
-            </div> */}
-            
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
               Premium Whey Protein
               <br />
@@ -31,7 +26,7 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/products">
+              <Link to="/products" className="w-full sm:w-auto">
                 <Button 
                   size="sm" 
                   className="bg-gradient-to-r from-primary to-red-600 hover:shadow-xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 text-lg group w-full sm:w-auto"
@@ -40,13 +35,16 @@ export const HeroSection = () => {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
- <Button 
-                size="lg" 
-                variant="outline"
-                className="border-2 text-lg transition-all duration-300 hover:scale-105 hover:bg-primary/5 hover:text-black hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
-              >
-                Contact Us
-              </Button>
+
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button 
+                  size="lg" 
+                  variant="outline"
+                  className="border-2 text-lg transition-all duration-300 hover:scale-105 hover:bg-primary/5 hover:text-black hover:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10 w-full sm:w-auto"
+                >
+                  Contact Us
+                </Button>
+              </Link>
             </div>
 
             {/* Stats */}
@@ -66,13 +64,13 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right column - Product image */}
+          {/* Right column - Product image (smaller, responsive) */}
           <div className="relative animate-fade-in-right flex justify-center">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-red-600/20 rounded-full blur-3xl animate-pulse-glow" />
             <img 
               src={heroProduct} 
               alt="Premium Whey Protein Products" 
-              className="relative z-10 w-4/5 h-auto animate-float drop-shadow-2xl"
+              className="relative z-10 w-3/5 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto animate-float drop-shadow-2xl"
             />
           </div>
         </div>

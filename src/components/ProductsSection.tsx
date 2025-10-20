@@ -10,7 +10,8 @@ import type { User } from "@supabase/supabase-js";
 const products = [
   {
     name: "Gold Standard Whey",
-    price: "$49.99",
+    price: "₹4500",
+    originalPrice: "₹4999",
     rating: 5,
     description: "24g protein, 5.5g BCAAs, 4g Glutamine",
     image: "/images/gold-standard.png",
@@ -18,7 +19,8 @@ const products = [
   },
   {
     name: "Isolate Premium",
-    price: "$59.99",
+    price: "₹5499",
+    originalPrice: "₹5999",
     rating: 5,
     description: "30g protein, ultra-filtered whey isolate",
     image: "/images/isolate-premium.png",
@@ -26,7 +28,8 @@ const products = [
   },
   {
     name: "Mass Gainer",
-    price: "$69.99",
+    price: "₹6499",
+    originalPrice: "₹6999",
     rating: 5,
     description: "50g protein, 250g carbs, 1250 calories",
     image: "/images/mass-gainer.png",
