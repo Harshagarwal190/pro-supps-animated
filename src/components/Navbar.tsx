@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Dumbbell, LogOut, User } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import type { User as SupabaseUser } from "@supabase/supabase-js";
+import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
   const [user, setUser] = useState<SupabaseUser | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -54,19 +56,59 @@ export const Navbar = () => {
           </Link>
           
           <div className="hidden md:flex items-center gap-8 animate-fade-in">
-            <Link to="/" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            <Link 
+              to="/" 
+              className={cn(
+                "transition-colors duration-300 font-medium",
+                location.pathname === "/" 
+                  ? "text-primary" 
+                  : "text-foreground hover:text-primary"
+              )}
+            >
               Home
             </Link>
-            <Link to="/products" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            <Link 
+              to="/products" 
+              className={cn(
+                "transition-colors duration-300 font-medium",
+                location.pathname === "/products" 
+                  ? "text-primary" 
+                  : "text-foreground hover:text-primary"
+              )}
+            >
               Products
             </Link>
-            <Link to="/features" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            <Link 
+              to="/features" 
+              className={cn(
+                "transition-colors duration-300 font-medium",
+                location.pathname === "/features" 
+                  ? "text-primary" 
+                  : "text-foreground hover:text-primary"
+              )}
+            >
               Features
             </Link>
-            <Link to="/testimonials" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            <Link 
+              to="/testimonials" 
+              className={cn(
+                "transition-colors duration-300 font-medium",
+                location.pathname === "/testimonials" 
+                  ? "text-primary" 
+                  : "text-foreground hover:text-primary"
+              )}
+            >
               Testimonials
             </Link>
-            <Link to="/blog" className="text-foreground hover:text-primary transition-colors duration-300 font-medium">
+            <Link 
+              to="/blog" 
+              className={cn(
+                "transition-colors duration-300 font-medium",
+                location.pathname.startsWith("/blog") 
+                  ? "text-primary" 
+                  : "text-foreground hover:text-primary"
+              )}
+            >
               Blog
             </Link>
           </div>
