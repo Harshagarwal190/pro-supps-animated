@@ -167,11 +167,30 @@ const Cart = () => {
     return cartItems.reduce((total, item) => total + (item.product_price * item.quantity), 0).toFixed(2);
   };
 
-  const handleCheckout = () => {
-    toast({
-      title: "Checkout",
-      description: "Checkout functionality will be implemented soon",
-    });
+  const handleCheckout = async () => {
+    try {
+      // Delete all cart items for the current user
+      const { error } = await supabase
+        .from("cart")
+        .delete()
+        .eq("user_id", user?.id);
+
+      if (error) throw error;
+
+      // Clear local state
+      setCartItems([]);
+
+      toast({
+        title: "Order Placed! 🎉",
+        description: "Your order will be placed soon. Thank you for shopping!",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message,
+        variant: "destructive",
+      });
+    }
   };
 
   if (loading) {
