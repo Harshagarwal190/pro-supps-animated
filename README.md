@@ -1,101 +1,195 @@
-# Pro Supps Animated
+<img width="1842" height="905" alt="image" src="https://github.com/user-attachments/assets/3e48dafc-7e57-45f5-b249-b5790354cabe" />
 
-Animated UI components / illustrations for Pro Supps (or “ProSupps Animated”).
+```markdown
+# ProSupps - Premium Fitness Supplements Store
 
-A collection of animated visual elements built for use in the Pro Supps project — e.g. supplement packaging, landing pages, hero sections, and more.
-
-## 🚀 Features
-
-- SVG / Lottie based animations  
-- Lightweight and performant  
-- Easy to integrate into web projects  
-- Customizable (colors, speed, size)  
-- Multiple components (icons, loaders, hero animations, etc.)
-
-## 📦 Contents / Structure
-
-Below is a recommended structure (adjust to your actual repo):
-
-/
-├── src/
-│ ├── components/
-│ │ ├── HeroAnimation/
-│ │ ├── Loader/
-│ │ └── IconAnimations/
-│ ├── assets/
-│ │ ├── svg/
-│ │ └── lottie/
-│ └── styles/
-├── demo/
-│ ├── index.html
-│ └── app.js
-├── .gitignore
-├── package.json
-├── README.md
-└── LICENSE
+A modern, full-stack e-commerce platform for fitness supplements built with React, TypeScript, and Supabase.
 
 
-- **src/** — source code for components and animations  
-- **demo/** — a small demo to showcase usage  
-- **assets/** — images, SVGs, Lottie JSON files  
-- **styles/** — CSS / SCSS files (if any)  
-- **package.json** — dependencies & scripts  
 
-## 🛠️ Installation
+## 🌟 Features
 
-You can install via npm (or yarn). Example:
+- **User Authentication** - Secure signup/login with email and password
+- **Product Catalog** - Browse premium fitness supplements with detailed information
+- **Shopping Cart** - Real-time cart updates with item count badge
+- **Order Management** - Simple checkout process with order confirmation
+- **Responsive Design** - Fully responsive across all devices
+- **Dark/Light Mode** - Theme switching support
+- **Real-time Updates** - Cart automatically syncs across sessions
 
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18, TypeScript, Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: Shadcn/ui
+- **Backend**: Supabase (Database, Authentication, Real-time)
+- **Routing**: React Router v6
+- **Icons**: Lucide React
+- **State Management**: React Hooks
+
+## 📋 Prerequisites
+
+- Node.js 18+ or Bun
+- npm, yarn, or bun package manager
+
+## 🚀 Installation
+
+1. **Clone the repository**
 ```bash
-npm install pro-supps-animated
+git clone 
+cd prosupps
+```
+
+2. **Install dependencies**
+```bash
+npm install
 # or
-yarn add pro-supps-animated
+bun install
+```
 
-🎨 Customization
+3. **Set up environment variables**
 
-You can override defaults via props or via CSS (depending on implementation).
-Examples:
+Create a `.env` file in the root directory:
+```env
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_PUBLISHABLE_KEY=your_supabase_anon_key
+VITE_SUPABASE_PROJECT_ID=your_project_id
+```
 
-Change colors
+4. **Run the development server**
+```bash
+npm run dev
+# or
+bun dev
+```
 
-Adjust animation duration / throttling
+The app will be available at `http://localhost:8080`
 
-Toggle states (pause / resume)
+## 📁 Project Structure
 
-Responsive / adapt to container sizing
+```
+prosupps/
+├── src/
+│   ├── components/         # Reusable UI components
+│   │   ├── ui/            # Shadcn UI components
+│   │   ├── Navbar.tsx     # Navigation bar with cart
+│   │   ├── Footer.tsx     # Footer component
+│   │   └── ...            # Other components
+│   ├── pages/             # Page components
+│   │   ├── Index.tsx      # Home page
+│   │   ├── Products.tsx   # Products listing
+│   │   ├── Cart.tsx       # Shopping cart
+│   │   ├── Auth.tsx       # Login/Signup page
+│   │   └── ...
+│   ├── integrations/      # Supabase integration
+│   │   └── supabase/
+│   ├── hooks/             # Custom React hooks
+│   ├── lib/               # Utility functions
+│   └── main.tsx           # App entry point
+├── public/                # Static assets
+└── supabase/             # Database migrations & functions
+```
 
-🧪 Demo & Examples
+## 🗄️ Database Schema
 
-Check out demo/ folder, or host a live demo (e.g. on GitHub Pages, Netlify).
-Examples to try:
+### Tables
 
-Hero section with entrance animation
+**users**
+- id (uuid, primary key)
+- email (text)
+- full_name (text)
+- avatar_url (text)
+- created_at (timestamp)
 
-Loader overlay
+**products**
+- id (uuid, primary key)
+- name (text)
+- description (text)
+- price (numeric)
+- category (text)
+- image_url (text)
+- stock (integer)
 
-Icon animations on scroll / hover
+**cart**
+- id (uuid, primary key)
+- user_id (uuid, foreign key)
+- product_id (text)
+- quantity (integer)
+- created_at (timestamp)
 
- Contributing
+**user_roles**
+- id (uuid, primary key)
+- user_id (uuid, foreign key)
+- role (enum: user, admin)
 
-Contributions are welcome! Steps:
+## 🎯 Usage
 
-Fork the repo
+### For Users
 
-Create a new branch (git checkout -b feat/your-feature)
+1. **Sign Up**: Create an account on the `/auth` page
+2. **Browse Products**: Navigate to `/products` to see all available supplements
+3. **Add to Cart**: Click "Add to Cart" on any product
+4. **View Cart**: Click the cart icon in the navbar to see your items
+5. **Checkout**: Click "Proceed to Checkout" to place your order
 
-Implement and test
+### For Developers
 
-Submit a pull request
+**Adding New Products**
+- Requires admin role in the database
+- Products are stored in the `products` table
+- Images should be placed in `public/images/`
 
-Make sure to:
+**Customizing Styles**
+- Edit `src/index.css` for global styles
+- Modify `tailwind.config.ts` for theme customization
+- Update component styles in respective component files
 
-Follow code style / linting
+## 🔐 Authentication
 
-Add tests if applicable
+The app uses Supabase Authentication with:
+- Email/Password authentication
+- Row Level Security (RLS) for data protection
+- Auto-confirm email signups enabled for development
 
-Update this README / docs
+## 🚢 Deployment
 
-📝 License
+### Deploy to Production
 
-This project is released under the MIT License (or choose your preferred license).
-See the LICENSE
- file for details.
+1. **Build the project**
+```bash
+npm run build
+# or
+bun run build
+```
+
+2. **Preview the build**
+```bash
+npm run preview
+# or
+bun run preview
+```
+
+3. **Deploy to your hosting platform**
+- The built files will be in the `dist/` directory
+- Configure environment variables on your hosting platform
+- Recommended platforms: Vercel, Netlify, or any static hosting service
+
+## 📝 Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
