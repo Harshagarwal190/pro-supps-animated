@@ -161,6 +161,18 @@ export const Navbar = () => {
           <div className="flex items-center gap-2 animate-fade-in-right">
             {user ? (
               <>
+                <div className="flex items-center gap-2 text-sm text-foreground">
+                  <User className="h-4 w-4" />
+                  <span className="hidden md:inline">{user.email}</span>
+                </div>
+                <Button 
+                  variant="ghost" 
+                  onClick={handleLogout}
+                  className="hover:scale-105 transition-transform duration-300"
+                >
+                  <LogOut className="h-4 w-4 mr-2" />
+                  Logout
+                </Button>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -173,18 +185,6 @@ export const Navbar = () => {
                       {cartCount > 99 ? '99+' : cartCount}
                     </span>
                   )}
-                </Button>
-                <div className="flex items-center gap-2 text-sm text-foreground">
-                  <User className="h-4 w-4" />
-                  <span className="hidden md:inline">{user.email}</span>
-                </div>
-                <Button 
-                  variant="ghost" 
-                  onClick={handleLogout}
-                  className="hover:scale-105 transition-transform duration-300"
-                >
-                  <LogOut className="h-4 w-4 mr-2" />
-                  Logout
                 </Button>
               </>
             ) : (
