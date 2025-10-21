@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
   const [user, setUser] = useState<SupabaseUser | null>(null);
+  const [cartCount, setCartCount] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
@@ -26,6 +27,50 @@ export const Navbar = () => {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      fetchCartCount();
+      
+      // Set up realtime subscription for cart changes
+      const channel = supabase
+        .channel('cart-changes')
+        .on(
+          'postgres_changes',
+          {
+            event: '*',
+            schema: 'public',
+            table: 'cart',
+            filter: `user_id=eq.${user.id}`
+          },
+          () => {
+            fetchCartCount();
+          }
+        )
+        .subscribe();
+
+      return () => {
+        supabase.removeChannel(channel);
+      };
+    } else {
+      setCartCount(0);
+    }
+  }, [user]);
+
+  const fetchCartCount = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("cart")
+        .select("quantity");
+
+      if (error) throw error;
+
+      const totalCount = data?.reduce((sum, item) => sum + item.quantity, 0) || 0;
+      setCartCount(totalCount);
+    } catch (error) {
+      console.error("Error fetching cart count:", error);
+    }
+  };
 
   const handleLogout = async () => {
     const { error } = await supabase.auth.signOut();
@@ -120,9 +165,14 @@ export const Navbar = () => {
                   variant="ghost"
                   size="icon"
                   onClick={() => navigate("/cart")}
-                  className="hover:scale-105 transition-transform duration-300"
+                  className="hover:scale-105 transition-transform duration-300 relative"
                 >
                   <ShoppingCart className="h-5 w-5" />
+                  {cartCount > 0 && (
+                    <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                      {cartCount > 99 ? '99+' : cartCount}
+                    </span>
+                  )}
                 </Button>
                 <div className="flex items-center gap-2 text-sm text-foreground">
                   <User className="h-4 w-4" />
