@@ -9,23 +9,23 @@ A modern, full-stack e-commerce platform for fitness supplements built with Reac
 
 ## 🌟 Features
 
-- **User Authentication** - Secure signup/login with email and password
-- **Product Catalog** - Browse premium fitness supplements with detailed information
-- **Shopping Cart** - Real-time cart updates with item count badge
-- **Order Management** - Simple checkout process with order confirmation
-- **Responsive Design** - Fully responsive across all devices
-- **Dark/Light Mode** - Theme switching support
-- **Real-time Updates** - Cart automatically syncs across sessions
+- User Authentication - Secure signup/login with email and password
+- Product Catalog - Browse premium fitness supplements with detailed information
+- Shopping Cart - Real-time cart updates with item count badge
+- Order Management - Simple checkout process with order confirmation
+- Responsive Design - Fully responsive across all devices
+- Dark/Light Mode - Theme switching support
+- Real-time Updates - Cart automatically syncs across sessions
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: React 18, TypeScript, Vite
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn/ui
-- **Backend**: Supabase (Database, Authentication, Real-time)
-- **Routing**: React Router v6
-- **Icons**: Lucide React
-- **State Management**: React Hooks
+- Frontend: React 18, TypeScript, Vite
+- Styling: Tailwind CSS
+- UI Components: Shadcn/ui
+- Backend: Supabase (Database, Authentication, Real-time)
+- Routing: React Router v6
+- Icons: Lucide React
+- State Management: React Hooks
 
 ## 📋 Prerequisites
 
