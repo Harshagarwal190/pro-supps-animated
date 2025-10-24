@@ -7,7 +7,7 @@ const Products = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-16">
-        <ProductsSection />
+        <ProductsSection showAll={true} />
       </div>
       <Footer />
     </div>

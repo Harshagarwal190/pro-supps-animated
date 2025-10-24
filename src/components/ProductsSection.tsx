@@ -69,7 +69,7 @@ const additionalProducts = [
     delay: "1.0s",
   },
 ];
-export const ProductsSection = () => {
+export const ProductsSection = ({ showAll = false }: { showAll?: boolean }) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -89,11 +89,16 @@ export const ProductsSection = () => {
     return () => subscription.unsubscribe();
   }, []);
 
+  const allProducts = showAll ? [...products, ...additionalProducts] : products;
+
   const getProductId = (productName: string) => {
     const productIds: Record<string, string> = {
       "Gold Standard Whey": "gold-standard",
       "Isolate Premium": "isolate-premium",
       "Mass Gainer": "mass-gainer",
+      "BCAA Energy": "bcaa-energy",
+      "Pre-Workout Elite": "pre-workout-elite",
+      "Creatine Monohydrate": "creatine-monohydrate",
     };
     return productIds[productName] || productName.toLowerCase().replace(/\s+/g, '-');
   };
@@ -178,7 +183,7 @@ export const ProductsSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, index) => (
+          {allProducts.map((product, index) => (
             <Card
               key={index}
               className="overflow-hidden hover:shadow-2xl transition-all duration-300 group animate-scale-in"
@@ -223,13 +228,15 @@ export const ProductsSection = () => {
         </div>
 
         {/* More Products button that redirects to the full products page */}
-        <div className="flex justify-center mt-8">
-          <Link to="/products" aria-label="View more products">
-            <Button className="bg-gradient-to-r from-primary to-red-600 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300">
-              More Products
-            </Button>
-          </Link>
-        </div>
+        {!showAll && (
+          <div className="flex justify-center mt-8">
+            <Link to="/products" aria-label="View more products">
+              <Button className="bg-gradient-to-r from-primary to-red-600 hover:shadow-lg hover:shadow-primary/50 transition-all duration-300">
+                More Products
+              </Button>
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );
