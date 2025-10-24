@@ -37,6 +37,38 @@ const products = [
   },
 ];
 
+const additionalProducts = [
+  {
+    name: "BCAA Energy",
+    price: "₹2999",
+    originalPrice: "₹3499",
+    discount: "14% OFF",
+    rating: 5,
+    description: "Energy-boosting BCAAs with electrolytes",
+    image: "/images/bcaa-energy.png",
+    delay: "0.6s",
+  },
+    {
+    name: "Pre-Workout Elite",
+    price: "₹3499",
+    originalPrice: "₹3999",
+    discount: "12% OFF",
+    rating: 5,
+    description: "Advanced pre-workout formula",
+    image: "/images/pre-workout.png",
+    delay: "0.8s",
+  },
+  {
+    name: "Creatine Monohydrate",
+    price: "₹1999",
+    originalPrice: "₹2499",
+    discount: "20% OFF",
+    rating: 5,
+    description: "Pure micronized creatine for strength",
+    image: "/images/creatine.png",
+    delay: "1.0s",
+  },
+];
 export const ProductsSection = () => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState<string | null>(null);

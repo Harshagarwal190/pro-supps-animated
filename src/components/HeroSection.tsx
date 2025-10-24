@@ -4,6 +4,13 @@ import { Link } from "react-router-dom";
 import heroProduct from "@/assets/hero-product-new.png";
 
 export const HeroSection = () => {
+  const scrollToProducts = () => {
+    const productsSection = document.getElementById('products');
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-20">
       {/* Background gradient */}
@@ -26,15 +33,14 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/products" className="w-full sm:w-auto">
-                <Button 
-                  size="sm" 
-                  className="bg-gradient-to-r from-primary to-red-600 hover:shadow-xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 text-lg group w-full sm:w-auto"
-                >
-                  View Products
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
+              <Button 
+                onClick={scrollToProducts}
+                size="lg" 
+                className="bg-gradient-to-r from-primary to-red-600 hover:shadow-xl hover:shadow-primary/50 hover:scale-105 transition-all duration-300 text-lg group w-full sm:w-auto"
+              >
+                View Products
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
 
               <Link to="/contact" className="w-full sm:w-auto">
                 <Button 
@@ -64,7 +70,7 @@ export const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right column - Product image (smaller, responsive) */}
+          {/* Right column - Product image */}
           <div className="relative animate-fade-in-right flex justify-center">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-red-600/20 rounded-full blur-3xl animate-pulse-glow" />
             <img 
